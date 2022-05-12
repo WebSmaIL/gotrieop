@@ -1,0 +1,679 @@
+@import "nullstyle";
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+$btn-color: linear-gradient(129.54deg, #FF7B4E 15.57%, #FF584E 95.03%);
+$pop: 'Poppins', sans-serif;
+
+@mixin font($ff, $fs, $fw, $fz, $lh, $color) {
+    font-family: $ff;
+    font-style: $fs;
+    font-weight: $fw;
+    font-size: $fz;
+    line-height: $lh;
+    color: $color;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+    background: #E5E5E5;
+}
+
+.header {
+    max-width: 100%;
+    height: 100vh;
+    padding: 20px 0;
+    overflow: hidden;
+    
+    border-radius: 0 0 500px 0;
+    box-shadow: 20px 20px 50px rgba(34, 34, 34, 0.5);
+    background: linear-gradient(115.76deg, #387852 0%, #112120 102.72%, rgba(196, 196, 196, 0) 102.73%);;
+    
+    position: relative;
+
+    &_btn {
+        margin-top: 50px;
+    }
+
+    &__head {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__logo {
+        @include font($pop, normal, bold, 20px, 30px, white);
+    }
+
+    &__nav {
+        display: flex;
+        width: 600px;
+        height: 50px;
+        padding-top: 10px;
+        justify-content: space-around;
+
+
+        border-radius: 0 0 100px 100px;
+        position: fixed;
+        top: 0;
+        left: 50%; margin-left: -300px;
+        z-index: 1;
+    }
+
+    &__nav::after {
+        content: '';
+        width: 100%;
+        height: 100%;
+
+        box-shadow: inset 0 0 0 3000px rgba(34, 34, 34, 0.5);
+        filter: blur(1px);
+        backdrop-filter: blur(10px);
+        border-radius: 0 0 100px 100px;
+
+        position: absolute;
+        top: 0;
+        z-index: 0;
+    }
+
+    &__link {
+        @include font($pop, normal, 500, 15px, 22px, white);
+        text-decoration: none;
+        cursor: pointer;
+        
+        position: relative;
+        z-index: 1;
+
+        &::after {
+            content: ' ';
+            width: 0;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+
+            transition: all 0.5s ease;
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+        
+        &.active {
+            color: #FF7B4E;
+            &::after {
+                width: 100%;
+                background: #FF7B4E;
+            }
+        }
+
+    }
+
+    &__login {
+        display: flex;
+        justify-content: space-between;
+        width: 250px;
+    }
+
+    &__sign-up {
+        margin-top: 13px;
+        @include font($pop, normal, 500, 15px, 22px, white);
+        text-decoration: none;
+        text-align: center;
+        position: relative;
+
+        cursor: pointer;
+
+        &::after {
+            content: ' ';
+            width: 0;
+            height: 3px;
+            background: #fff;
+            border-radius: 2px;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+
+            transition: all 0.5s ease;
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+    
+
+    &__sign-in {
+        width: 130px;
+        height: 50px;
+        
+        @include font($pop, normal, 500, 15px, 22px, white);
+
+        background: $btn-color;
+        border-radius: 100px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+
+        &::after {
+            content: ' ';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 100px;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0);
+
+            transition: all .5s ease;
+        }
+
+        &:hover {
+            &::after {
+                content: ' ';
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.301);
+            }
+        }
+    }
+
+    &__content {
+        margin-top: 50px;
+        width: 610px;
+    }
+
+    &__title {
+        @include font($pop, normal, 600, 55px, 82px, white);
+    }
+
+    &__text {
+        margin-top: 30px;
+
+        @include font($pop, normal, 500, 25px, 38px, white);
+        
+        opacity: 0.5;
+    }
+}
+
+.container {
+    margin: 0 100px ;    
+}
+
+.btn {
+    width: 263px;
+    height: 91px;
+    
+    @include font($pop, normal, 500, 25px, 38px, white);
+
+    background: $btn-color;
+    border: none;
+    outline: none;
+    border-radius: 27px;
+    cursor: pointer;
+    position: relative;
+
+    &::after {
+        content: ' ';
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        border-radius: 27px;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0);
+
+        transition: all 1s ease;
+    }
+
+    &:hover {
+        &::after {
+            content: ' ';
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.13);
+        }
+    }
+}
+
+.cards {
+
+    width: 100%;
+    height: 100vh;
+    padding: 80px 0;
+
+    // .cards__flex
+
+    &__flex {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .cards__info
+
+    &__info {
+        width: 450px;
+    }
+
+    // .cards__title
+
+    &__title {
+        @include font($pop, normal, 600, 30px, 45px, #000)
+    }
+
+    // .cards__subtitle
+
+    &__subtitle {
+        margin-top: 30px;
+        @include font($pop, normal, 600, 55px, 82px, #000)
+    }
+
+    // .cards__text
+
+    &__text {
+        margin: 35px 0 50px;
+        @include font($pop, normal, 500, 25px, 38px, #000);
+        opacity: 0.5;
+    }
+
+
+    // .cards__elements
+
+    &__elements {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    // .cards__card
+
+    &__card {
+        width: 300px;
+        overflow: hidden;
+        margin-left: 20px;
+
+        border-radius: 30px;
+        box-shadow: 0 0 25px rgba(0, 0, 0, 0.392);
+        transition: all 1s ease;
+
+        &:first-child {
+            margin-left: 0;
+        }
+
+        &:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.392);
+        }
+        
+        &>img {
+            transition: all 10s ease;
+        }
+
+        &:hover > img {
+            transform: scale(1.3);
+        }
+    }
+
+    &__btn {
+        width: 223px;
+        height: 79px;
+        @include font($pop, normal, 600, 20px, 30px, #fff)
+    }
+}
+
+.comment {
+    width: 100%;
+    height: 100vh;
+    padding: 60px 0;
+    display: flex;
+    align-items: center;
+
+    // .comment__elements
+
+    &__elements {
+        display: flex;
+        justify-content: space-around;
+    }
+
+    // .comment__img
+
+    &__img {
+        
+        max-height: 580px;
+        margin-right: 20px;
+        overflow: hidden;
+        border-radius: 60px;
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.226);
+
+        &>img {
+            height: 580px;
+            transition: all 10s ease;
+        }
+        &:hover > img {
+            transform: scale(1.3);
+        }
+    }
+
+    &__info {
+        max-width: 765px;
+        max-height: 580px;
+        background: white;
+        border-radius: 100px;
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.226);
+        padding: 35px;
+    }
+
+    // .comment__title
+
+    &__title {
+        @include font($pop, normal, 500, 45px, 68px, black)
+    }
+
+    &__peopleInfo {
+        margin-top: 35px;
+        display: flex;
+        width: 400px;
+        justify-content: space-around;
+    }
+
+    &__avatar {
+        width: 135px;
+        height: 135px;
+        border-radius: 50%;
+        background: $btn-color;
+        overflow: hidden;
+    }
+
+    &__infoblock {
+        padding: 20px 0;
+    }
+
+    // .comment__name
+
+    &__name {
+        @include font($pop, normal, 500, 33px, 50px, black)
+    }
+
+    // .comment__geo
+
+    &__geo {
+        @include font($pop, normal, normal, 25px, 38px, #0F1F1C);
+        opacity: 0.5;
+    }
+
+    // .comment__text
+
+    &__text {
+        margin-top: 60px;
+        @include font($pop, normal, 500, 22px, 33px, #0F1F1C);
+        opacity: 0.5;
+    }
+
+    // .comment__stars
+
+    &__stars {
+        display: flex;
+        width: 330px;
+        margin-top: 30px;
+        justify-content: space-around;
+    }
+}
+
+.getStarted {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+    padding: 80px 0;
+
+    // .getStarted__container
+
+    &__container {
+        max-width: 1240px;
+        height: max-content;
+        margin: 20px 100px;
+        padding: 115px 250px;
+
+        background: #fff;
+        border-radius: 60px;
+        box-shadow: 0 0 100px rgba(0, 0, 0, 0.103);
+
+        text-align: center;
+
+        position: relative;
+    }
+
+    // .getStarted__decor
+
+    &__decor {
+        position: absolute;
+        z-index: 0;
+        
+        &-first {
+            bottom: 60px;
+            left: 80px;
+            
+        }
+
+        &-second {
+            top: 60px;
+            right: 80px;
+
+            transform: rotate(180deg);
+        }
+    }
+
+    // .getStarted__text
+
+    &__text {
+        margin-top: 30px;
+        @include font($pop, normal, normal, 30px, 45px, #0F1F1C);
+        opacity: 0.5;
+        position: relative;
+        z-index: 1;
+    }
+
+    // .getStarted__btn
+
+    &__btn {
+        margin-top: 60px;
+        width: 223px;
+        height: 79px;
+        @include font($pop, normal, 600, 20px, 30px, #fff)
+    }
+
+    &__title {
+        @include font($pop, normal, 500, 45px, 68px, #0F1F1C);
+        position: relative;
+        z-index: 1;
+    }
+}
+
+.footer {
+    width: 100%;
+    height: 100vh;
+    padding: 80px 0;
+    text-align: center;
+    position: relative;
+
+    // .footer__title
+
+    &__title {
+        width: 500px;
+        margin: 0 auto;
+        text-align: center;
+        @include font($pop, 600, normal, 55px, 82px, #0F1F1C);
+    }
+
+    // .footer__input
+
+    &__inputBlock {
+        width: 100%;
+        height: 129px;
+        margin: 60px auto 200px auto;
+        
+        border-radius: 35px;
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.11);
+
+        position: relative;
+    }
+
+    &__input {
+        width: 100%;
+        height: 129px;
+        padding-left: 45px;
+
+        background: linear-gradient(0deg, #FFFFFF, #FFFFFF), #C4C4C4;
+        border-radius: 35px;
+        border: none;
+
+        @include font($pop, normal, 500, 24px, 36px, #0F1F1C);
+        opacity: 0.7;
+
+    }
+
+    // .footer__btn
+
+    &__btn {
+        width: 300px;
+        height: 105px;
+        position: absolute;
+        right: 12px;
+        top: 12px;
+    }
+
+    // .footer__info
+
+    &__info {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    // .footer__logo
+
+    &__logo {
+        @include font($pop, normal, bold, 20px, 30px, rgba(255, 124, 78, 1));
+    }
+
+    // .footer__links
+
+    &__links {
+        display: flex;
+        width: 600px;
+        height: 50px;
+        padding-top: 13px;
+        justify-content: space-around;
+    }
+
+    // .footer__link
+
+    &__link {
+        @include font($pop, normal, 500, 15px, 22px, rgba(131, 139, 137, 1));
+        text-decoration: none;
+        cursor: pointer;
+        
+        position: relative;
+        z-index: 1;
+
+        &::after {
+            content: ' ';
+            width: 0;
+            height: 3px;
+            background: rgba(131, 139, 137, 1);
+            border-radius: 2px;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+
+            transition: all 0.5s ease;
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    // .footer__login
+
+    &__login {
+        display: flex;
+        justify-content: space-between;
+        width: 250px;
+    }
+
+    &__signUp {
+        margin-top: 13px;
+        @include font($pop, normal, 500, 15px, 22px, rgba(131, 139, 137, 1));
+        text-decoration: none;
+        text-align: center;
+        position: relative;
+
+        cursor: pointer;
+
+        &::after {
+            content: ' ';
+            width: 0;
+            height: 3px;
+            background: rgba(131, 139, 137, 1);
+            border-radius: 2px;
+            position: absolute;
+            bottom: 10px;
+            left: 0;
+
+            transition: all 0.5s ease;
+        }
+
+        &:hover {
+            &::after {
+                width: 100%;
+            }
+        }
+    }
+
+    // .footer__signIn
+
+    &__signIn {
+        width: 130px;
+        height: 50px;
+        
+        @include font($pop, normal, 500, 15px, 22px, white);
+
+        background: $btn-color;
+        border-radius: 100px;
+        outline: none;
+        border: none;
+        cursor: pointer;
+        position: relative;
+
+        &::after {
+            content: ' ';
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            border-radius: 100px;
+            top: 0;
+            left: 0;
+            background: rgba(0, 0, 0, 0);
+
+            transition: all .5s ease;
+        }
+
+        &:hover {
+            &::after {
+                content: ' ';
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.103);
+            }
+        }
+    }
+}
+
+@import "media";
